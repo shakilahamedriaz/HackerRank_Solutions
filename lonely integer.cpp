@@ -1,29 +1,28 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-int main()
-{
+int lonelyinteger(vector<int> a);
+int lonelyinteger(vector<int> a) {
+    int result = 0;
+    for (int i = 0; i < a.size(); i++) {
+        result ^= a[i];
+    }
+    return result;
+}
 
+
+int main() {
     int n;
-    cin>>n;
+    cin >> n;
 
-    int arr[n];
-    for(int i=0; i<n; i++)
-    {
-
-        cin>>arr[i];
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
 
-    sort(arr, arr+n);
-
-    for(int i=0; i<n; i++)
-    {
-        if(arr[i]!=arr[i+1]){
-
-             cout<<arr[i];
-        }
-    }
-
+    int uniqueElement = lonelyinteger(arr);
+    cout << uniqueElement << endl;
 
     return 0;
 }
